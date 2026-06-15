@@ -1,0 +1,29 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+DirectoryIndex home.html index.html
+ErrorDocument 404 /home.html
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType image/jpg  "access plus 1 month"
+  ExpiresByType text/css   "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType text/html  "access plus 0 seconds"
+</IfModule>
+
+<FilesMatch "\.(html)$">
+  Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
