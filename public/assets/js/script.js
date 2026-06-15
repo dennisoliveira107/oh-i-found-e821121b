@@ -1,9 +1,18 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('menu-btn');
-  if (btn) btn.addEventListener('click', function() {
-    document.getElementById('menu-mobile').classList.toggle('hidden');
-  });
+  var menu = document.getElementById('menu-mobile');
+  if (btn && menu) {
+    btn.addEventListener('click', function() {
+      menu.classList.toggle('hidden');
+    });
+    // Fechar menu ao clicar em qualquer link
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        menu.classList.add('hidden');
+      });
+    });
+  }
   if ('IntersectionObserver' in window) {
     var obs = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
