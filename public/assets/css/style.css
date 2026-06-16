@@ -554,15 +554,17 @@ img, iframe { max-width: 100%; height: auto; }
 ::selection { background: rgba(212,175,55,.45); color: #fff; }
 
 /* ===== Marquee ===== */
-.marquee-container{background:linear-gradient(90deg,#0a1628,#1a2838,#0a1628);padding:12px 0;overflow:hidden;border-top:1px solid #D4AF37;border-bottom:1px solid #D4AF37;position:relative}
-.marquee-container::before,.marquee-container::after{content:'';position:absolute;top:0;width:100px;height:100%;z-index:10;pointer-events:none}
-.marquee-container::before{left:0;background:linear-gradient(90deg,#0a1628 0%,transparent 100%)}
-.marquee-container::after{right:0;background:linear-gradient(90deg,transparent 0%,#0a1628 100%)}
-.marquee-text{display:inline-block;white-space:nowrap;animation:marquee 30s linear infinite;color:#fff;font-size:14px;font-weight:500;letter-spacing:2px;padding-left:100%}
-.marquee-text .highlight{color:#D4AF37;font-weight:700}
+.marquee-container{background:linear-gradient(90deg,#D4AF37 0%,#E8C26A 50%,#D4AF37 100%);padding:12px 0;margin:16px 0 0;overflow:hidden;border-radius:8px;width:100%;position:relative;box-shadow:0 4px 16px rgba(212,175,55,.25)}
+.marquee-container::before,.marquee-container::after{content:'';position:absolute;top:0;width:40px;height:100%;z-index:10;pointer-events:none}
+.marquee-container::before{left:0;background:linear-gradient(90deg,#D4AF37 0%,transparent 100%)}
+.marquee-container::after{right:0;background:linear-gradient(90deg,transparent 0%,#D4AF37 100%)}
+.marquee-text{display:inline-block;white-space:nowrap;animation:marquee 25s linear infinite;color:#0a1628;font-size:13px;font-weight:600;letter-spacing:1px;padding-left:100%}
+.marquee-text .highlight{color:#0a1628;font-weight:800}
 .marquee-container:hover .marquee-text{animation-play-state:paused}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-@media(max-width:767px){.marquee-text{font-size:12px;letter-spacing:1px}}
+@media(max-width:480px){.marquee-text{font-size:11px;letter-spacing:.5px}.marquee-container{padding:8px 0;margin:12px 0 0}}
+@media(min-width:768px){.marquee-text{font-size:14px}}
+@media(min-width:1280px){.marquee-text{font-size:15px}}
 
 /* ===== Badges carousel ===== */
 .badges-carousel{padding:40px 20px;background:linear-gradient(135deg,#0a1628,#1a2838);text-align:center;overflow:hidden}
