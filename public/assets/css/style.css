@@ -577,3 +577,6 @@ img, iframe { max-width: 100%; height: auto; }
 @keyframes badgeSlide{0%{transform:translateX(0)}100%{transform:translateX(calc(-160px * 5))}}
 @keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(212,175,55,.6),0 0 40px rgba(212,175,55,.3),inset 0 0 20px rgba(255,255,255,.2)}50%{box-shadow:0 0 30px rgba(212,175,55,.8),0 0 50px rgba(212,175,55,.5),inset 0 0 20px rgba(255,255,255,.4)}}
 @media(max-width:767px){.badge-circle{width:100px;height:100px}.badge-text{font-size:11px}.badges-container{gap:16px}@keyframes badgeSlide{0%{transform:translateX(0)}100%{transform:translateX(calc(-116px * 5))}}}
+
+.marquee-section{width:100%;padding:24px 16px 0;max-width:1200px;margin:0 auto}
+@media(max-width:480px){.marquee-section{padding:16px 12px 0}}
