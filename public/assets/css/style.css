@@ -544,6 +544,28 @@ img, iframe { max-width: 100%; height: auto; }
   .btn-cta-gold::after, .btn-cta-nav::after, .btn-primary::after { animation-duration: 3.5s; }
 }
 
+/* Logo imagem no nav */
+.logo-img{height:52px;width:auto;object-fit:contain;display:block}
+@media(max-width:767px){.logo-img{height:40px}}
+
+/* Hero image real */
+.hero-img{position:relative}
+.hero-img img{width:100%;height:100%;object-fit:cover;border-radius:24px;display:block}
+.hero-img-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(10,22,40,0.85);backdrop-filter:blur(12px);border:1px solid var(--borda);border-radius:14px;padding:14px 18px;display:flex;flex-direction:column;gap:4px}
+.hero-img-badge-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--texto)}
+.hero-img-badge-crm{font-size:12px;color:var(--ouro);font-weight:600;letter-spacing:0.5px}
+
+/* Seção estrutura / clínica */
+.estrutura-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:768px){.estrutura-grid{grid-template-columns:1fr;gap:20px}}
+.estrutura-card{border-radius:20px;overflow:hidden;border:1px solid var(--borda);background:var(--fundo-2);box-shadow:var(--shadow-soft);transition:transform .3s,box-shadow .3s}
+.estrutura-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-gold)}
+.estrutura-card img{width:100%;height:300px;object-fit:cover;display:block}
+@media(min-width:1024px){.estrutura-card img{height:380px}}
+.estrutura-caption{padding:20px 24px;display:flex;flex-direction:column;gap:4px}
+.estrutura-caption strong{color:var(--texto);font-size:16px;font-family:'Playfair Display',serif}
+.estrutura-caption span{color:var(--texto-sec);font-size:13px;line-height:1.5}
+
 /* Hero sub-headline */
 .hero-sub{font-size:20px;font-weight:600;color:var(--ouro);margin:0 0 16px;line-height:1.4;letter-spacing:-0.01em}
 @media(max-width:767px){.hero-sub{font-size:16px}}
