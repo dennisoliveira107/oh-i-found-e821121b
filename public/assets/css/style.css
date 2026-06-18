@@ -823,3 +823,67 @@ body{color:var(--texto)}
 
 /* ---- Badge dourado em fundo claro (caso apareça) ---- */
 .section .badge-gold{background:rgba(212,175,55,0.12);color:var(--ouro-text);border-color:rgba(212,175,55,0.45)}
+
+/* ==================================================================
+   MARCA AZUL + DOURADO  (azul = cor principal, dourado = detalhe)
+   Alinha com a marca do Dr. Maxwell (drmaxwellpereira.com.br)
+   ================================================================== */
+:root{
+  --azul:#1d4e79;
+  --azul-2:#2766a6;
+  --azul-deep:#143a5c;
+  --grad-azul:linear-gradient(135deg,#2766a6 0%,#1d4e79 55%,#14375a 100%);
+  --grad-azul-bright:linear-gradient(135deg,#5ba3e0 0%,#2d7bc4 100%);
+  --shadow-azul:0 14px 40px rgba(29,78,121,0.28);
+}
+
+/* ---- BOTÕES principais agora AZUL ---- */
+.btn-primary,.btn-cta-nav,.btn-cta-gold{
+  background:var(--grad-azul)!important;color:#ffffff!important;
+  box-shadow:var(--shadow-azul)!important;
+}
+.btn-cta-mobile{background:var(--grad-azul)!important;color:#ffffff!important}
+.btn-primary:hover,.btn-cta-nav:hover,.btn-cta-gold:hover{
+  box-shadow:0 18px 50px rgba(29,78,121,0.45)!important;filter:brightness(1.08)
+}
+/* halo dos botões em tom claro */
+.btn-cta-gold::after,.btn-cta-nav::after,.btn-primary::after{
+  background:radial-gradient(circle,rgba(255,255,255,.35) 0%,transparent 60%)
+}
+
+/* ---- DESTAQUE "FUE" e números em AZUL ---- */
+.hero h1 span{background:var(--grad-azul-bright);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.num-valor,.step-num{background:var(--grad-azul);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ---- ÍCONES e links em AZUL ---- */
+.card-servico .ico,.pq-icon{background:rgba(29,78,121,0.10);border-color:rgba(29,78,121,0.22);color:var(--azul)}
+.btn-saiba-mais{color:var(--azul)}
+.btn-saiba-mais:hover{color:var(--azul-2)}
+.card-servico::before,.card-feature::before{background:var(--grad-azul)}
+.faq-btn .sign{color:var(--azul)}
+.content-wrap h3{color:var(--azul)}
+a{color:var(--azul)}
+
+/* ---- Hover de cards em azul ---- */
+.card-servico:hover,.card-feature:hover{box-shadow:0 24px 48px rgba(29,78,121,0.20)!important;border-color:rgba(29,78,121,0.4)!important}
+.card-servico:hover h3,.card-feature:hover h3{color:var(--azul)}
+.num-card:hover{box-shadow:0 16px 40px rgba(29,78,121,0.18);border-color:rgba(29,78,121,0.3)}
+.pq-card:hover,.step-card:hover,.estrutura-card:hover{box-shadow:0 16px 40px rgba(29,78,121,0.16);border-color:rgba(29,78,121,0.3)}
+
+/* ---- DOURADO mantido só nos detalhes premium ---- */
+/* badges (pílulas "Referência"), estrelas 4.9★, preço R$500, card destaque */
+.card-feature,.pq-card-destaque{
+  background:linear-gradient(160deg,#f3f8fd,#ffffff)!important;
+  border-color:rgba(29,78,121,0.35)!important;
+  box-shadow:0 14px 40px rgba(29,78,121,0.14)!important;
+}
+.card-feature::before,.pq-card-destaque::before{background:var(--grad-gold)} /* fininho dourado no topo */
+
+/* ---- Navbar: underline azul-claro ---- */
+.nav-link::after{background:var(--grad-azul-bright)}
+
+/* ---- Rodapé: marca e links hover ---- */
+.footer-brand{background:var(--grad-azul-bright);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.footer-link:hover{color:#5ba3e0}
+
+/* ---- WhatsApp continua verde (não mexer) ---- */
