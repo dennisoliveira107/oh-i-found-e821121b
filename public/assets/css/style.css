@@ -734,3 +734,92 @@ img, iframe { max-width: 100%; height: auto; }
 
 .marquee-section{width:100%;padding:24px 16px 0;max-width:1200px;margin:0 auto}
 @media(max-width:480px){.marquee-section{padding:16px 12px 0}}
+
+/* ==================================================================
+   TEMA CLARO PREMIUM CLÍNICO  (override final — vence o tema escuro)
+   Hero / CTA / Rodapé escuros dramáticos + corpo claro e arejado
+   ================================================================== */
+:root{
+  --fundo:#ffffff;
+  --fundo-2:#f6f8fb;
+  --fundo-3:#eef2f7;
+  --texto:#15233a;
+  --texto-sec:#5b6b82;
+  --borda:rgba(21,35,58,0.10);
+  --ouro-text:#9a7916;
+  --shadow-soft:0 12px 40px rgba(21,35,58,0.08);
+  --shadow-gold:0 16px 44px rgba(212,175,55,0.22);
+  /* --grad-bg e --grad-cta permanecem ESCUROS para hero/cta/balsas */
+}
+body{background:#ffffff}
+
+/* Cor base de texto em fundo claro */
+body{color:var(--texto)}
+
+/* ---- HERO (mantém escuro) ---- */
+.hero h1{color:#ffffff}
+.hero-desc{color:rgba(255,255,255,0.82)}
+.hero-badges{color:rgba(255,255,255,0.74)}
+.hero-img-badge{background:rgba(8,16,30,0.82)}
+.hero-img-badge-name{color:#ffffff}
+
+/* ---- NÚMEROS (claro) ---- */
+.numeros{background:var(--fundo-3)}
+.num-card{background:#ffffff;box-shadow:0 8px 28px rgba(21,35,58,0.06)}
+.num-card:hover{box-shadow:0 16px 40px rgba(212,175,55,0.18)}
+
+/* ---- SEÇÕES claras alternadas ---- */
+.section{background:#ffffff}
+#servicos{background:var(--fundo-2)}
+#mapa{background:var(--fundo-2)}
+
+/* ---- CARDS sobre fundo claro ---- */
+.pq-card,.card-servico,.step-card,.estrutura-card,.faq-item,.card-depo{
+  background:#ffffff;
+  box-shadow:0 8px 28px rgba(21,35,58,0.06);
+}
+.card-servico .ico,.pq-icon{background:rgba(212,175,55,0.12);border-color:rgba(212,175,55,0.3);color:var(--ouro-text)}
+.btn-saiba-mais{color:var(--ouro-text)}
+.btn-saiba-mais:hover{color:var(--ouro)}
+.card-feature,.pq-card-destaque{
+  background:linear-gradient(160deg,#fff8e8,#ffffff)!important;
+  border-color:rgba(212,175,55,0.5)!important;
+  box-shadow:0 14px 40px rgba(212,175,55,0.16)!important;
+}
+
+/* ---- FAQ claro ---- */
+#faq{background:var(--fundo-3)}
+.faq-item{background:#ffffff}
+.faq-btn{color:var(--texto)}
+
+/* ---- ESTRUTURA / AVALIAÇÕES claros ---- */
+#estrutura{background:var(--fundo-3)}
+#avaliacoes{background:#ffffff}
+
+/* ---- BALSAS (mantém escuro) ---- */
+.balsas h2{color:#ffffff}
+.balsas p{color:rgba(255,255,255,0.82)}
+
+/* ---- FAIXA PAGAMENTO (mantém escura) ---- */
+.pagamento-item{color:rgba(255,255,255,0.85)}
+.pagamento-item strong{color:#ffffff}
+
+/* ---- CTA (mantém escura) ---- */
+.cta-section h2{color:#ffffff}
+.cta-section p{color:rgba(255,255,255,0.82)}
+
+/* ---- RODAPÉ (mantém escuro) ---- */
+.footer-h{color:#ffffff}
+.footer-p,.footer-pm,.footer-link,.contact-list p{color:rgba(255,255,255,0.70)}
+.footer-link:hover{color:var(--ouro)}
+
+/* ---- PAGE HERO (outras páginas, mantém escuro) ---- */
+.page-hero p{color:rgba(255,255,255,0.82)}
+.content-wrap p,.content-wrap ul{color:var(--texto-sec)}
+.breadcrumb,.breadcrumb a{color:var(--texto-sec)}
+
+/* ---- Scrollbar clara ---- */
+::-webkit-scrollbar-track{background:#eef2f7}
+
+/* ---- Badge dourado em fundo claro (caso apareça) ---- */
+.section .badge-gold{background:rgba(212,175,55,0.12);color:var(--ouro-text);border-color:rgba(212,175,55,0.45)}
