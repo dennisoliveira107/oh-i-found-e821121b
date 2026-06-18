@@ -1,15 +1,25 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Navbar scroll effect
+  var navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function(){
+      if (window.scrollY > 40) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }, {passive:true});
+  }
+
   var btn = document.getElementById('menu-btn');
   var menu = document.getElementById('menu-mobile');
   if (btn && menu) {
     btn.addEventListener('click', function() {
       menu.classList.toggle('hidden');
+      btn.classList.toggle('open');
     });
-    // Fechar menu ao clicar em qualquer link
     menu.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){
         menu.classList.add('hidden');
+        btn.classList.remove('open');
       });
     });
   }
