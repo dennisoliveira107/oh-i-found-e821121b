@@ -961,3 +961,63 @@ a{color:var(--azul)}
 @media (prefers-reduced-motion: reduce){
   .fade-in-on-scroll{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* ==================================================================
+   CORREÇÕES DE QUALIDADE  (logo, navbar, hero, mobile, botões)
+   Feedback do cliente — desktop, tablet e celular
+   ================================================================== */
+
+/* ---- LOGO maior e visível em todos os tamanhos ---- */
+.nav-inner{height:80px}
+body{padding-top:80px}
+.logo-img{height:60px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
+@media(max-width:767px){.logo-img{height:50px!important}}
+
+/* ---- NAVBAR: links maiores, hover azul consistente (sem caixa branca) ---- */
+.nav-desktop{gap:4px}
+.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 18px!important}
+.nav-link:hover{color:#ffffff!important;background:transparent!important}
+.nav-link::after{background:var(--grad-azul-bright);height:2.5px}
+.nav-link:hover::after{width:70%}
+.btn-cta-nav{font-size:14.5px!important;padding:13px 28px!important}
+
+/* ---- HERO: elimina o espaço enorme no topo ---- */
+.hero{min-height:auto!important;padding:56px 24px 72px!important;align-items:flex-start}
+.hero h1{font-size:clamp(34px,5vw,62px)}
+@media(max-width:768px){
+  .hero{padding:32px 20px 48px!important}
+  .hero-grid{gap:32px}
+  .hero h1{font-size:30px;margin:14px 0}
+  .badge-gold{font-size:11px;letter-spacing:1px;padding:7px 14px}
+  .hero-sub{font-size:17px!important}
+  .hero-desc{font-size:15px}
+}
+
+/* ---- FOTO do doutor: enquadramento correto no mobile (não cortar) ---- */
+@media(max-width:768px){
+  .hero-img{aspect-ratio:3/4!important;max-width:320px;margin:0 auto}
+  .hero-img img{object-position:center top}
+}
+
+/* ---- NÚMEROS: cabem inteiros no celular ---- */
+.num-valor{font-size:clamp(26px,6vw,44px)}
+@media(max-width:480px){
+  .numeros{padding:44px 14px}
+  .numeros-grid{gap:14px}
+  .num-card{padding:26px 8px}
+  .num-valor{font-size:28px;white-space:nowrap}
+  .num-label{font-size:11.5px}
+}
+
+/* ---- BOTÕES: texto legível e padding equilibrado no mobile ---- */
+@media(max-width:768px){
+  .hero-ctas{flex-direction:column;width:100%}
+  .hero-ctas .btn-primary,.hero-ctas .btn-outline{width:100%;text-align:center;padding:15px 24px;font-size:15px}
+  .btn-cta-gold{padding:16px 30px;font-size:16px}
+  .cta-section{padding:60px 20px}
+  .cta-section h2{font-size:26px}
+}
+
+/* ---- Página SOBRE: foto única centralizada (sem o vídeo) ---- */
+.dr-media-solo{grid-template-columns:1fr!important;max-width:520px;margin:0 auto}
+.dr-media-solo .dr-photo{aspect-ratio:4/5;max-width:480px;margin:0 auto;width:100%}
