@@ -892,10 +892,21 @@ a{color:var(--azul)}
    POLISH PREMIUM DE FRONTEND  (refino final — profundidade e editorial)
    ================================================================== */
 
-/* Linha de destaque azul→dourado acima de cada título de seção */
-.section-head::before,.balsas::before{}
+/* Garante empilhamento vertical centralizado (eyebrow → título → subtítulo) */
+.section-head{display:flex;flex-direction:column;align-items:center}
+/* Eyebrow editorial (estilo Anthropic distilled): traço + rótulo em maiúsculas */
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--azul);
+  margin-bottom:16px;
+}
+.section-eyebrow::before,.section-eyebrow::after{
+  content:"";width:26px;height:2px;border-radius:2px;background:var(--ouro);opacity:.85;
+}
+/* Linha de destaque (seções que ainda não têm eyebrow) */
 .section-head h2{position:relative}
-.section-head h2::before{
+.section-head:not(:has(.section-eyebrow)) h2::before{
   content:"";display:block;width:52px;height:3px;margin:0 auto 20px;
   background:linear-gradient(90deg,var(--azul),var(--ouro));border-radius:3px;
 }
