@@ -887,3 +887,66 @@ a{color:var(--azul)}
 .footer-link:hover{color:#5ba3e0}
 
 /* ---- WhatsApp continua verde (não mexer) ---- */
+
+/* ==================================================================
+   POLISH PREMIUM DE FRONTEND  (refino final — profundidade e editorial)
+   ================================================================== */
+
+/* Linha de destaque azul→dourado acima de cada título de seção */
+.section-head::before,.balsas::before{}
+.section-head h2{position:relative}
+.section-head h2::before{
+  content:"";display:block;width:52px;height:3px;margin:0 auto 20px;
+  background:linear-gradient(90deg,var(--azul),var(--ouro));border-radius:3px;
+}
+
+/* Ícones com gradiente, profundidade e ring (mais premium) */
+.card-servico .ico,.pq-icon{
+  background:linear-gradient(145deg,#eaf2fb,#ffffff)!important;
+  border:1px solid rgba(29,78,121,0.14)!important;
+  box-shadow:0 6px 18px rgba(29,78,121,0.10),inset 0 1px 0 #ffffff!important;
+  color:var(--azul)!important;transition:transform .35s ease,box-shadow .35s ease;
+}
+.card-servico:hover .ico,.pq-card:hover .pq-icon{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 12px 26px rgba(29,78,121,0.18),inset 0 1px 0 #ffffff!important;
+}
+
+/* Cards: sombra mais suave e refinada + borda sutil */
+.pq-card,.card-servico,.step-card,.estrutura-card{
+  border:1px solid rgba(21,35,58,0.07)!important;
+  box-shadow:0 10px 30px rgba(21,35,58,0.05)!important;
+  transition:transform .4s cubic-bezier(.34,1.4,.64,1),box-shadow .4s ease,border-color .3s ease;
+}
+.pq-card:hover,.card-servico:hover{transform:translateY(-8px)}
+
+/* Número/estatística: barra de destaque animada no topo */
+.num-card{position:relative;overflow:hidden;border:1px solid rgba(21,35,58,0.07)}
+.num-card::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--grad-azul);transform:scaleX(0);transform-origin:left;transition:transform .5s ease;
+}
+.num-card:hover::after{transform:scaleX(1)}
+
+/* Botões: leve refino de tipografia */
+.btn-primary,.btn-cta-nav,.btn-cta-gold,.btn-cta-mobile{letter-spacing:.015em}
+
+/* Revelação no scroll mais suave (sobe e aparece) */
+.fade-in-on-scroll{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.fade-in-on-scroll.in-view{opacity:1;transform:translateY(0)}
+.card-servico,.card-feature,.pq-card,.num-card,.step-card{animation:none!important}
+
+/* Estrutura (fotos da clínica): legenda mais elegante */
+.estrutura-caption{background:#ffffff}
+.estrutura-caption strong{color:var(--azul)}
+
+/* FAQ: item aberto com leve destaque azul */
+.faq-item:hover{border-color:rgba(29,78,121,0.30)!important}
+
+/* Seleção de texto em azul da marca */
+::selection{background:rgba(29,78,121,.85);color:#fff}
+
+/* Scroll suave já ativo; reduz movimento para quem prefere */
+@media (prefers-reduced-motion: reduce){
+  .fade-in-on-scroll{opacity:1!important;transform:none!important;transition:none!important}
+}
