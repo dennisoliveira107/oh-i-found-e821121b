@@ -83,10 +83,7 @@ a{color:var(--ouro)}
 .section-head h2{font-size:48px;margin:0 0 16px;line-height:1.15}
 .section-head p{color:var(--texto-sec);font-size:16px;margin:0}
 .badge-gold{display:inline-flex;align-items:center;gap:8px;background:var(--ouro-alpha);border:1px solid rgba(212,175,55,0.4);border-radius:100px;padding:8px 18px;color:var(--ouro);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 0 20px rgba(212,175,55,0.15)}
-.hero{min-height:92vh;display:flex;align-items:center;padding:100px 24px;position:relative;overflow:hidden}
-.hero-video-container{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden}
-.hero-video-bg{width:100%;height:100%;object-fit:cover;opacity:0.6}
-.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom, rgba(10, 22, 40, 0.8), rgba(10, 22, 40, 0.4));z-index:1}
+.hero{min-height:92vh;background:radial-gradient(ellipse at 70% 30%,rgba(212,175,55,0.12),transparent 55%),var(--grad-bg);display:flex;align-items:center;padding:100px 24px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none}
 .hero>*{position:relative;z-index:1}
 .hero-grid{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
@@ -124,7 +121,7 @@ a{color:var(--ouro)}
 @media(max-width:768px){.dr-media{grid-template-columns:1fr;gap:24px;padding:24px 16px}}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 @media(max-width:900px){.cards-3{grid-template-columns:1fr}}
-.card-servico{background:rgba(26, 40, 56, 0.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(212, 175, 55, 0.2);border-radius:20px;padding:40px;transition:all .35s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.card-servico{background:linear-gradient(160deg,var(--fundo-2),var(--fundo-3));border:1px solid var(--borda);border-radius:20px;padding:40px;transition:all .35s;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .card-servico::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad-gold);opacity:0;transition:opacity .35s}
 .card-servico:hover{border-color:rgba(212,175,55,0.5);transform:translateY(-6px);box-shadow:var(--shadow-gold)}
 .card-servico:hover::before{opacity:1}
