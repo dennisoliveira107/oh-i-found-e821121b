@@ -1024,3 +1024,38 @@ body{padding-top:80px}
 /* ---- Página SOBRE: foto única centralizada (sem o vídeo) ---- */
 .dr-media-solo{grid-template-columns:1fr!important;max-width:520px;margin:0 auto}
 .dr-media-solo .dr-photo{aspect-ratio:4/5;max-width:480px;margin:0 auto;width:100%}
+
+/* ==================================================================
+   ANIMAÇÕES SUTIS — entrada da hero + brilho no CTA (nativas, leves)
+   SEGURO: só rodam se o usuário aceita movimento; nunca escondem conteúdo
+   ================================================================== */
+@media (prefers-reduced-motion: no-preference){
+  /* Entrada elegante da hero ao carregar (escalonada) */
+  .hero .badge-gold{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.05s}
+  .hero h1{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.15s}
+  .hero-sub{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.30s}
+  .hero-desc{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.42s}
+  .hero-ctas{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.54s}
+  .hero-badges{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.66s}
+  .hero-img{animation:heroEntraImg 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:.30s}
+
+  /* Entrada suave nos titulos das paginas internas */
+  .page-hero .badge-gold,.page-hero h1,.page-hero p{animation:heroEntra .8s cubic-bezier(.2,.7,.2,1) both}
+  .page-hero h1{animation-delay:.12s}
+  .page-hero p{animation-delay:.24s}
+
+  /* Brilho pulsante sutil so no botao principal de agendar (hero) */
+  .hero-ctas .btn-primary{animation:ctaGlow 3s ease-in-out infinite}
+}
+@keyframes heroEntra{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes heroEntraImg{
+  from{opacity:0;transform:translateY(22px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes ctaGlow{
+  0%,100%{box-shadow:0 8px 24px rgba(29,78,121,.32)}
+  50%{box-shadow:0 10px 32px rgba(29,78,121,.55),0 0 0 4px rgba(29,78,121,.10)}
+}
