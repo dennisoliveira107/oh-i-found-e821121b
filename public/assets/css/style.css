@@ -967,6 +967,9 @@ a{color:var(--azul)}
    Feedback do cliente — desktop, tablet e celular
    ================================================================== */
 
+/* ---- Âncoras: não esconder o título atrás do menu fixo ---- */
+html{scroll-padding-top:96px}
+
 /* ---- LOGO maior e visível em todos os tamanhos ---- */
 .nav-inner{height:80px}
 body{padding-top:80px}
