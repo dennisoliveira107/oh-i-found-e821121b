@@ -1,5 +1,15 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize AOS
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+
   // Navbar scroll effect
   var navbar = document.getElementById('navbar');
   if (navbar) {
