@@ -1115,3 +1115,53 @@ body{padding-top:80px}
   .scroll-progress,.hero .badge-gold::after{display:none}
   .tilt{transform:none!important}
 }
+
+/* ==================================================================
+   PENTE-FINO PREMIUM — refinamento editorial de alto padrão
+   Whitespace generoso, tipografia confiante, detalhes bespoke
+   ================================================================== */
+
+/* Mais respiro entre as seções (sites premium "respiram" mais) */
+@media(min-width:900px){
+  .section{padding:128px 24px}
+  .section-head{margin-bottom:76px}
+  .numeros{padding:96px 24px}
+}
+
+/* Títulos de seção maiores e mais confiantes (menos "genérico") */
+.section-head h2{font-size:clamp(34px,4.2vw,54px);letter-spacing:-0.025em;line-height:1.08}
+.section-head p{font-size:17px;max-width:620px;line-height:1.75;color:#5b6b82}
+
+/* Eyebrow com mais classe editorial */
+.section-eyebrow{letter-spacing:3px;font-size:11.5px}
+
+/* Cards: sombra premium multi-camada (suave, cara de produto caro) */
+.pq-card,.card-servico,.step-card,.estrutura-card{
+  border:1px solid rgba(21,35,58,0.06)!important;
+  box-shadow:0 1px 2px rgba(21,35,58,.03),0 14px 34px rgba(21,35,58,.055)!important;
+  border-radius:22px!important;
+}
+.card-servico{padding:44px 38px}
+.pq-card{padding:38px 32px}
+
+/* Números: mais editoriais e imponentes no desktop */
+@media(min-width:900px){
+  .num-valor{font-size:clamp(40px,5vw,58px)!important;letter-spacing:-0.02em}
+  .num-card{padding:56px 28px}
+}
+
+/* Botões premium: peso e espaçamento de marca de luxo */
+.btn-primary,.btn-cta-gold{letter-spacing:.02em;font-weight:700}
+
+/* Fio de ouro sutil separando o CTA final (detalhe fino) */
+.cta-section{border-top:1px solid rgba(212,175,55,.22)}
+
+/* Hero: um respiro a mais e desc mais elegante */
+.hero-desc{max-width:540px;line-height:1.8}
+
+/* Links de menu com transição mais refinada */
+.nav-link{transition:color .25s ease,background .25s ease}
+
+/* Tipografia de leitura mais confortável nas páginas de conteúdo */
+.content-wrap p{font-size:17px;line-height:1.85;color:#41506a}
+.content-wrap h2{font-size:clamp(26px,3vw,36px);letter-spacing:-0.02em}
