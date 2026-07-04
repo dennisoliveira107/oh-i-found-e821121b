@@ -1165,3 +1165,29 @@ body{padding-top:80px}
 /* Tipografia de leitura mais confortável nas páginas de conteúdo */
 .content-wrap p{font-size:17px;line-height:1.85;color:#41506a}
 .content-wrap h2{font-size:clamp(26px,3vw,36px);letter-spacing:-0.02em}
+
+/* ==================================================================
+   ACESSIBILIDADE — skip-link, foco visível, indicador de página atual
+   ================================================================== */
+
+/* Skip-link: invisível até receber foco pelo teclado (WCAG 2.4.1) */
+.skip-link{
+  position:absolute;top:-60px;left:12px;z-index:3000;
+  background:var(--azul);color:#fff;padding:12px 22px;border-radius:10px;
+  font-size:14px;font-weight:700;text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
+
+/* Foco visível customizado — sempre dourado, visível em qualquer fundo */
+a:focus-visible,button:focus-visible,.nav-link:focus-visible,.faq-btn:focus-visible,.filtro-btn:focus-visible{
+  outline:3px solid var(--ouro);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* Indicador de página atual no menu */
+.nav-link[aria-current="page"]{color:var(--azul);font-weight:700}
+.nav-link[aria-current="page"]::after{width:70%}
+.menu-mobile a[aria-current="page"]{color:var(--ouro);font-weight:700}

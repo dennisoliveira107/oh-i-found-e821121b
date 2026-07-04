@@ -55,13 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
       fadeObs.observe(el);
     });
   }
-  // FAQ accordion
-  document.querySelectorAll('.faq-item .faq-question, details.faq-item summary').forEach(function(q){
-    q.addEventListener('click', function(ev){
-      var item = q.closest('.faq-item');
-      if (item) { ev.preventDefault(); item.classList.toggle('active'); }
-    });
-  });
 });
 
 /* ===== EFEITOS INTERATIVOS PREMIUM ===== */
