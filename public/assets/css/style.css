@@ -1059,3 +1059,59 @@ body{padding-top:80px}
   0%,100%{box-shadow:0 8px 24px rgba(29,78,121,.32)}
   50%{box-shadow:0 10px 32px rgba(29,78,121,.55),0 0 0 4px rgba(29,78,121,.10)}
 }
+
+/* ==================================================================
+   EFEITOS INTERATIVOS PREMIUM (barra de progresso, tilt 3D, spotlight)
+   ================================================================== */
+
+/* Barra de progresso de leitura no topo */
+.scroll-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:2000;
+  background:linear-gradient(90deg,var(--azul),var(--ouro));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .1s linear;pointer-events:none;
+}
+
+/* Cards com efeito 3D (tilt) — transição suave ao seguir o mouse */
+.tilt{transition:transform .18s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease!important;transform-style:preserve-3d;will-change:transform}
+
+/* Spotlight sutil que segue o cursor dentro dos cards */
+.card-servico,.pq-card{position:relative}
+.card-servico::after,.pq-card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(29,78,121,.10),transparent 60%);
+  opacity:0;transition:opacity .35s ease;z-index:1;
+}
+.card-servico:hover::after,.pq-card:hover::after{opacity:1}
+.card-servico>*,.pq-card>*{position:relative;z-index:2}
+
+/* Shine (brilho passando) nos botões ao passar o mouse */
+.btn-primary,.btn-cta-nav,.btn-cta-gold{position:relative;overflow:hidden}
+.btn-primary::before,.btn-cta-nav::before,.btn-cta-gold::before{
+  content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:skewX(-20deg);transition:left .6s ease;pointer-events:none;z-index:1;
+}
+.btn-primary:hover::before,.btn-cta-nav:hover::before,.btn-cta-gold:hover::before{left:130%}
+
+/* Link "Saiba mais" com seta que desliza */
+.btn-saiba-mais{display:inline-flex;align-items:center;gap:6px;transition:gap .25s ease,color .25s ease}
+.btn-saiba-mais:hover{gap:12px}
+
+/* Imagens da estrutura: zoom suave + brilho ao passar o mouse */
+.estrutura-card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.estrutura-card:hover img{transform:scale(1.06)}
+
+/* Brilho dourado animado sutil atrás do badge do hero */
+.hero .badge-gold{position:relative;overflow:hidden}
+.hero .badge-gold::after{
+  content:"";position:absolute;top:0;left:-100%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(212,175,55,.35),transparent);
+  animation:badgeShine 4.5s ease-in-out infinite;
+}
+@keyframes badgeShine{0%,60%{left:-100%}80%,100%{left:200%}}
+
+@media (prefers-reduced-motion: reduce){
+  .scroll-progress,.hero .badge-gold::after{display:none}
+  .tilt{transform:none!important}
+}
