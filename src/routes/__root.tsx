@@ -101,12 +101,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://dr-maxwell-teste.lovable.app/",
       },
     ],
-    scripts: [
-      {
-        children:
-          "!function(w,d,s,i,u){w.__watrack_pixel_id__=i;var j=d.createElement(s);j.async=true;j.src=u+'/watrack-sdk-v1.js';d.head.appendChild(j);}(window,document,'script','PX-TQHKZU9U','https://watrackteste.lovable.app');",
-      },
-    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
