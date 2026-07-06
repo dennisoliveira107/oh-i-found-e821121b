@@ -1162,12 +1162,14 @@ a:focus-visible,button:focus-visible,.nav-link:focus-visible,.faq-btn:focus-visi
 .escala-calvicie{display:flex;justify-content:center;align-items:flex-start;gap:56px;flex-wrap:wrap;max-width:820px;margin:0 auto}
 .escala-grupo{display:flex;flex-direction:column;align-items:center;gap:16px}
 .escala-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
-.escala-chips{display:flex;gap:10px}
+.escala-chips{display:flex;gap:14px}
 .escala-chip{
-  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-weight:700;font-size:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;
+  width:56px;padding:10px 6px 8px;border-radius:14px;
   transition:transform .25s ease;
 }
+.escala-chip svg{display:block}
+.escala-num{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;letter-spacing:0.5px}
 .escala-chip:hover{transform:translateY(-4px) scale(1.08)}
 
 .escala-leve.escala-label{color:#5b9bd5}
@@ -1181,6 +1183,8 @@ a:focus-visible,button:focus-visible,.nav-link:focus-visible,.faq-btn:focus-visi
 
 @media(max-width:600px){
   .escala-calvicie{gap:28px}
-  .escala-chip{width:38px;height:38px;font-size:14px}
-  .escala-chips{gap:7px}
+  .escala-chip{width:46px;padding:8px 4px 6px}
+  .escala-chip svg{width:26px;height:31px}
+  .escala-num{font-size:12px}
+  .escala-chips{gap:9px}
 }
