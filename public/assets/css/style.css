@@ -549,6 +549,7 @@ img, iframe { max-width: 100%; height: auto; }
 
 /* ===== FAIXA DE PAGAMENTO ===== */
 .pagamento-strip{background:linear-gradient(90deg,#0a1628 0%,#1a2838 50%,#0a1628 100%);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);padding:20px 24px}
+#mapa .pagamento-strip{border:1px solid var(--borda);border-radius:16px}
 .pagamento-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
 .pagamento-titulo{color:var(--ouro);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;flex-shrink:0}
 .pagamento-items{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center}
@@ -1155,6 +1156,22 @@ a:focus-visible,button:focus-visible,.nav-link:focus-visible,.faq-btn:focus-visi
 .nav-link[aria-current="page"]{color:var(--azul);font-weight:700}
 .nav-link[aria-current="page"]::after{width:70%}
 .menu-mobile a[aria-current="page"]{color:var(--ouro);font-weight:700}
+
+/* ==================================================================
+   ACORDEÃO DE CAUSAS — versão compacta (Home)
+   ================================================================== */
+.causas-acordeao{max-width:800px;margin:0 auto 56px}
+.causa-item{border:1px solid var(--borda);border-radius:14px;margin-bottom:14px;background:#fff;transition:border-color .25s;overflow:hidden}
+.causa-item:hover{border-color:rgba(29,78,121,0.25)}
+.causa-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 22px;font-family:'Inter',sans-serif}
+.causa-icon{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(29,78,121,0.06);display:flex;align-items:center;justify-content:center;color:var(--azul)}
+.causa-text{flex:1;min-width:0;display:flex;flex-direction:column;text-align:left}
+.causa-title{font-weight:700;font-size:16px;color:var(--texto)}
+.causa-teaser{font-size:13px;color:var(--texto-sec);margin-top:2px}
+.causa-sign{color:var(--ouro);font-size:22px;flex-shrink:0}
+.causa-content{padding:0 22px 20px 78px}
+.causa-content p{color:var(--texto-sec);font-size:14px;line-height:1.7;margin:0}
+@media(max-width:600px){.causa-content{padding-left:22px}.causa-teaser{display:none}}
 
 /* ==================================================================
    ESCALA DE CALVÍCIE (Norwood-Hamilton) — visual educativo
