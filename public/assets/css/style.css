@@ -71,7 +71,7 @@ a{color:var(--ouro)}
 .footer-divider{border-top:1px solid var(--borda);margin:40px 0 24px}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-bottom p,.footer-bottom a{color:#5a6a80;font-size:12px;text-decoration:none;margin:0}
-.footer-geo{color:#3a4a60;font-size:11px;text-align:center;margin:16px 0 0;line-height:1.6}
+.footer-geo{color:rgba(255,255,255,.46);font-size:11px;text-align:center;margin:16px 0 0;line-height:1.6}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 #whatsapp-flutuante{position:fixed;bottom:28px;right:28px;z-index:9999;background:#25D366;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.5);text-decoration:none;transition:transform .25s,opacity .25s,visibility .25s;opacity:0;pointer-events:none;transform:translateY(8px)}
@@ -359,17 +359,12 @@ img, iframe { max-width: 100%; height: auto; }
    ============================================ */
 
 /* Animated shimmering gold name (logo + brand) */
-@keyframes shimmerGold {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
 .logo-name, .footer-brand {
   background: linear-gradient(90deg, #A8852A 0%, #F0CB5C 25%, #FFFFFF 50%, #F0CB5C 75%, #A8852A 100%);
-  background-size: 200% auto;
+  background-size: 100% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmerGold 4s linear infinite;
 }
 
 /* Hero H1 — premium reveal + shimmer on the FUE word */
@@ -391,11 +386,11 @@ img, iframe { max-width: 100%; height: auto; }
 .hero h1 span {
   display: inline-block;
   background: linear-gradient(90deg, #A8852A, #F0CB5C, #FFFFFF, #F0CB5C, #A8852A);
-  background-size: 200% auto;
+  background-size: 100% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmerGold 3s linear infinite, floatY 4s ease-in-out infinite;
+  animation: floatY 4s ease-in-out infinite;
 }
 
 /* Hero image — depth, 3D tilt, gold glow */
@@ -413,15 +408,9 @@ img, iframe { max-width: 100%; height: auto; }
   box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 90px rgba(212,175,55,.35);
 }
 
-/* Service / feature cards — animated gradient + tilt + gold border glow */
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
+/* Service / feature cards — static gradient + tilt + gold border glow */
 .card-servico, .num-card, .faq-item {
   background: linear-gradient(135deg, #1a2838 0%, #0f1d33 50%, #0a1628 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
   border: 1px solid var(--borda);
   border-radius: var(--radius);
   transition: transform .5s cubic-bezier(.34,1.56,.64,1), box-shadow .4s, border-color .4s;
