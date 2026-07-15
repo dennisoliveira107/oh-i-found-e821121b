@@ -934,10 +934,8 @@ body{padding-top:112px}
 .btn-cta-nav{margin-left:auto}
 .hamburger{margin-left:auto}
 @media(min-width:961px){.hamburger{margin-left:0}}
-.nav-link{padding-left:14px!important;padding-right:14px!important}
-
 /* ---- NAVBAR: links maiores, hover azul consistente (sem caixa branca) ---- */
-.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 18px!important}
+.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 14px!important}
 .nav-link:hover{color:#ffffff!important;background:transparent!important}
 .nav-link::after{background:var(--grad-azul-bright);height:2.5px}
 .nav-link:hover::after{width:70%}
