@@ -84,7 +84,10 @@ body.menu-aberto #whatsapp-flutuante{opacity:0!important;pointer-events:none!imp
 .section-head h2{font-size:48px;margin:0 0 16px;line-height:1.15}
 .section-head p{color:var(--texto-sec);font-size:16px;margin:0}
 .badge-gold{display:inline-flex;align-items:center;gap:8px;background:var(--ouro-alpha);border:1px solid rgba(212,175,55,0.4);border-radius:100px;padding:8px 18px;color:var(--ouro);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 0 20px rgba(212,175,55,0.15)}
-.hero{min-height:92vh;background:radial-gradient(ellipse at 70% 30%,rgba(212,175,55,0.12),transparent 55%),var(--grad-bg);display:flex;align-items:center;padding:100px 24px;position:relative;overflow:hidden}
+.hero{min-height:92vh;background:radial-gradient(ellipse at 70% 30%,rgba(212,175,55,0.12),transparent 55%),var(--grad-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px;position:relative;overflow:hidden}
+.hero-logo-footer{width:100%;max-width:1200px;margin:48px auto 0;display:flex;justify-content:center;align-items:center;padding:0 24px}
+.hero-logo-footer img{max-width:220px;width:100%;height:auto;filter:drop-shadow(0 4px 24px rgba(212,175,55,0.25))}
+@media(max-width:768px){.hero-logo-footer{margin-top:32px}.hero-logo-footer img{max-width:160px}}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none}
 .hero>*{position:relative;z-index:1}
 .hero-grid{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
