@@ -9,17 +9,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }, {passive:true});
   }
 
+  // Botao do WhatsApp so aparece apos sair do hero, evitando sobrepor o hero em telas pequenas
+  var waBtn = document.getElementById('whatsapp-flutuante');
+  if (waBtn) {
+    var toggleWa = function(){
+      if (window.scrollY > 420) waBtn.classList.add('wa-visivel');
+      else waBtn.classList.remove('wa-visivel');
+    };
+    toggleWa();
+    window.addEventListener('scroll', toggleWa, {passive:true});
+  }
+
   var btn = document.getElementById('menu-btn');
   var menu = document.getElementById('menu-mobile');
   if (btn && menu) {
     btn.addEventListener('click', function() {
       menu.classList.toggle('hidden');
       btn.classList.toggle('open');
+      document.body.classList.toggle('menu-aberto', !menu.classList.contains('hidden'));
     });
     menu.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){
         menu.classList.add('hidden');
         btn.classList.remove('open');
+        document.body.classList.remove('menu-aberto');
       });
     });
   }

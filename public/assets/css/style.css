@@ -74,8 +74,10 @@ a{color:var(--ouro)}
 .footer-geo{color:#3a4a60;font-size:11px;text-align:center;margin:16px 0 0;line-height:1.6}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
-#whatsapp-flutuante{position:fixed;bottom:28px;right:28px;z-index:9999;background:#25D366;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.5);text-decoration:none;transition:transform .25s}
+#whatsapp-flutuante{position:fixed;bottom:28px;right:28px;z-index:9999;background:#25D366;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.5);text-decoration:none;transition:transform .25s,opacity .25s,visibility .25s;opacity:0;pointer-events:none;transform:translateY(8px)}
+#whatsapp-flutuante.wa-visivel{opacity:1;pointer-events:auto;transform:translateY(0)}
 #whatsapp-flutuante:hover{transform:scale(1.08)}
+body.menu-aberto #whatsapp-flutuante{opacity:0!important;pointer-events:none!important}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 .section{padding:110px 24px}
 .section-head{text-align:center;margin-bottom:64px}
