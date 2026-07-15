@@ -328,9 +328,11 @@
 <section id="avaliacoes" class="section" style="background:var(--fundo)">
 <div class="wrap">
 <div class="section-head"><span class="section-eyebrow">Depoimentos</span><h2>O que dizem nossos pacientes</h2><p>Avaliações verificadas no Google · 5,0 ⭐</p></div>
-<!-- Elfsight Google Reviews | Instituto Dr. Maxwell Pereira -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-f03521d0-e9ec-4b77-aad7-ec2517451043" data-elfsight-app-lazy></div>
+<!-- Elfsight Google Reviews | Instituto Dr. Maxwell Pereira (carregado sob demanda) -->
+<div id="elfsight-holder" class="elfsight-app-f03521d0-e9ec-4b77-aad7-ec2517451043" data-elfsight-app-lazy></div>
+<script>
+(function(){var h=document.getElementById('elfsight-holder');if(!h)return;var loaded=false;function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.src='https://elfsightcdn.com/platform.js';s.async=true;document.body.appendChild(s);}if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load();io.disconnect();}});},{rootMargin:'400px'});io.observe(h);}else{window.addEventListener('load',load);}})();
+</script>
 </div>
 </section>
 
