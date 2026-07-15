@@ -641,8 +641,8 @@ img, iframe { max-width: 100%; height: auto; }
 .step-body p{color:var(--texto-sec);font-size:14px;line-height:1.7;margin:0}
 
 /* Logo imagem no nav */
-.logo-img{height:48px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 2px 8px rgba(212,175,55,.2))}
-@media(max-width:767px){.logo-img{height:36px}}
+.logo-img{height:72px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 2px 8px rgba(212,175,55,.2))}
+@media(max-width:767px){.logo-img{height:52px}}
 
 /* Hero image real */
 .hero-img{position:relative}
@@ -923,10 +923,10 @@ a{color:var(--azul)}
 html{scroll-padding-top:96px}
 
 /* ---- LOGO maior e visível em todos os tamanhos ---- */
-.nav-inner{height:80px}
-body{padding-top:80px}
-.logo-img{height:60px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
-@media(max-width:767px){.logo-img{height:50px!important}}
+.nav-inner{height:100px}
+body{padding-top:100px}
+.logo-img{height:80px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
+@media(max-width:767px){.nav-inner{height:80px}body{padding-top:80px}.logo-img{height:60px!important}}
 
 /* ---- NAVBAR: links maiores, hover azul consistente (sem caixa branca) ---- */
 .nav-desktop{gap:4px}
