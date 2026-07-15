@@ -923,14 +923,19 @@ a{color:var(--azul)}
 html{scroll-padding-top:96px}
 
 /* ---- LOGO maior e visível em todos os tamanhos ---- */
-.nav-inner{height:100px}
-body{padding-top:100px}
-.logo-img{height:80px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
-@media(max-width:767px){.nav-inner{height:80px}body{padding-top:80px}.logo-img{height:60px!important}}
+.nav-inner{height:112px;justify-content:flex-start;gap:28px}
+body{padding-top:112px}
+.logo-img{height:92px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
+@media(max-width:767px){.nav-inner{height:92px;gap:12px}body{padding-top:92px}.logo-img{height:69px!important}}
 
+/* ---- NAVBAR: nav próxima da logo; CTA e menu empurrados p/ direita ---- */
+.nav-right{display:contents}
+.nav-desktop{gap:2px;margin:0!important}
+.btn-cta-nav{margin-left:auto}
+.hamburger{margin-left:auto}
+@media(min-width:961px){.hamburger{margin-left:0}}
 /* ---- NAVBAR: links maiores, hover azul consistente (sem caixa branca) ---- */
-.nav-desktop{gap:4px}
-.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 18px!important}
+.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 14px!important}
 .nav-link:hover{color:#ffffff!important;background:transparent!important}
 .nav-link::after{background:var(--grad-azul-bright);height:2.5px}
 .nav-link:hover::after{width:70%}
