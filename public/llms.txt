@@ -1,20 +1,34 @@
 # Instituto Dr. Maxwell Pereira
 
-> Clínica de transplante capilar FUE em São Luís e Balsas (MA), liderada pelo Dr. Maxwell Pereira (CRM-MA 6903), com mais de 10.000 procedimentos realizados.
+> Clínica de transplante capilar FUE em São Luís e Balsas (MA), liderada pelo Dr. Maxwell Pereira (CRM-MA 6903, RQE 3497), com mais de 10.000 procedimentos realizados. Especialidade: cirurgia geral com foco em transplante capilar, de barba, de sobrancelha e mesoterapia capilar.
 
 ## Pages
 
-- [Home](/index.html): Visão geral da clínica, técnica FUE e agendamento de avaliação.
-- [Sobre](/sobre.html): Trajetória do Dr. Maxwell Pereira e equipe.
-- [Serviços](/servicos.html): Lista de procedimentos oferecidos pela clínica.
-- [Resultados](/resultados.html): Casos e resultados de pacientes.
-- [Causas e fases da calvície](/causas-e-fases-da-calvicie.html): Conteúdo educativo sobre queda de cabelo.
-- [FAQ](/faq.html): Perguntas frequentes sobre transplante capilar.
+- [Home](https://transplantecapilarsaoluis.com.br/index.html): Visão geral da clínica, técnica FUE e agendamento de avaliação.
+- [Sobre](https://transplantecapilarsaoluis.com.br/sobre.html): Trajetória do Dr. Maxwell Pereira, formação e equipe.
+- [Serviços](https://transplantecapilarsaoluis.com.br/servicos.html): Lista completa de procedimentos oferecidos.
+- [Resultados](https://transplantecapilarsaoluis.com.br/resultados.html): Casos antes e depois de pacientes reais.
+- [Causas e fases da calvície](https://transplantecapilarsaoluis.com.br/causas-e-fases-da-calvicie.html): Conteúdo educativo sobre queda de cabelo e escala Norwood-Hamilton.
+- [FAQ](https://transplantecapilarsaoluis.com.br/faq.html): Perguntas frequentes sobre transplante capilar, recuperação, pagamento e agendamento.
 
 ## Procedimentos
 
-- [Transplante capilar FUE em São Luís](/servicos/transplante-capilar-sao-luis.html): Técnica FUE sem cicatriz, resultado natural.
-- [Transplante de barba em São Luís](/servicos/transplante-de-barba-sao-luis.html): Preenchimento de falhas e definição do contorno.
-- [Transplante de sobrancelha em São Luís](/servicos/transplante-de-sobrancelha-sao-luis.html): Recomposição natural e harmônica.
-- [Mesoterapia capilar em São Luís](/servicos/mesoterapia-capilar-sao-luis.html): Microinjeções para estimular os fios.
-- [Tratamento para queda de cabelo em São Luís](/servicos/tratamento-queda-de-cabelo-sao-luis.html): Diagnóstico e tratamento clínico personalizado.
+- [Transplante capilar FUE em São Luís](https://transplantecapilarsaoluis.com.br/servicos/transplante-capilar-sao-luis.html): Técnica FUE sem cicatriz, resultado natural e permanente.
+- [Transplante de barba em São Luís](https://transplantecapilarsaoluis.com.br/servicos/transplante-de-barba-sao-luis.html): Preenchimento de falhas e definição do contorno.
+- [Transplante de sobrancelha em São Luís](https://transplantecapilarsaoluis.com.br/servicos/transplante-de-sobrancelha-sao-luis.html): Recomposição natural e harmônica.
+- [Mesoterapia capilar em São Luís](https://transplantecapilarsaoluis.com.br/servicos/mesoterapia-capilar-sao-luis.html): Microinjeções para estimular os fios.
+- [Tratamento para queda de cabelo em São Luís](https://transplantecapilarsaoluis.com.br/servicos/tratamento-queda-de-cabelo-sao-luis.html): Diagnóstico clínico personalizado.
+
+## Contato
+
+- WhatsApp / Telefone: +55 (98) 92000-0587
+- Instagram: https://www.instagram.com/drmaxwelloficial
+- Endereço (São Luís - MA): Ed. Tech Office, Av. dos Holandeses, 06, Sala 902/903, Ponta D'Areia, São Luís - MA, 65077-357
+- Unidade adicional: Balsas - MA (atendimento programado)
+- Avaliação online: R$ 300 · Consulta presencial: R$ 500
+- Horário: Seg–Sex 08h–18h · Sáb 08h–12h
+
+## Recursos
+
+- [Sitemap XML](https://transplantecapilarsaoluis.com.br/sitemap.xml)
+- [robots.txt](https://transplantecapilarsaoluis.com.br/robots.txt)
