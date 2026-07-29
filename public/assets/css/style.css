@@ -84,7 +84,10 @@ body.menu-aberto #whatsapp-flutuante{opacity:0!important;pointer-events:none!imp
 .section-head h2{font-size:48px;margin:0 0 16px;line-height:1.15}
 .section-head p{color:var(--texto-sec);font-size:16px;margin:0}
 .badge-gold{display:inline-flex;align-items:center;gap:8px;background:var(--ouro-alpha);border:1px solid rgba(212,175,55,0.4);border-radius:100px;padding:8px 18px;color:var(--ouro);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 0 20px rgba(212,175,55,0.15)}
-.hero{min-height:92vh;background:radial-gradient(ellipse at 70% 30%,rgba(212,175,55,0.12),transparent 55%),var(--grad-bg);display:flex;align-items:center;padding:100px 24px;position:relative;overflow:hidden}
+.hero{min-height:92vh;background:radial-gradient(ellipse at 70% 30%,rgba(212,175,55,0.12),transparent 55%),var(--grad-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px;position:relative;overflow:hidden}
+.hero-logo-footer{width:100%;max-width:1200px;margin:48px auto 0;display:flex;justify-content:center;align-items:center;padding:0 24px}
+.hero-logo-footer img{max-width:220px;width:100%;height:auto;filter:drop-shadow(0 4px 24px rgba(212,175,55,0.25))}
+@media(max-width:768px){.hero-logo-footer{margin-top:32px}.hero-logo-footer img{max-width:160px}}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none}
 .hero>*{position:relative;z-index:1}
 .hero-grid{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
@@ -638,8 +641,8 @@ img, iframe { max-width: 100%; height: auto; }
 .step-body p{color:var(--texto-sec);font-size:14px;line-height:1.7;margin:0}
 
 /* Logo imagem no nav */
-.logo-img{height:48px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 2px 8px rgba(212,175,55,.2))}
-@media(max-width:767px){.logo-img{height:36px}}
+.logo-img{height:72px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 2px 8px rgba(212,175,55,.2))}
+@media(max-width:767px){.logo-img{height:52px}}
 
 /* Hero image real */
 .hero-img{position:relative}
@@ -920,14 +923,19 @@ a{color:var(--azul)}
 html{scroll-padding-top:96px}
 
 /* ---- LOGO maior e visível em todos os tamanhos ---- */
-.nav-inner{height:80px}
-body{padding-top:80px}
-.logo-img{height:60px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
-@media(max-width:767px){.logo-img{height:50px!important}}
+.nav-inner{height:112px;justify-content:flex-start;gap:28px}
+body{padding-top:112px}
+.logo-img{height:92px!important;filter:drop-shadow(0 2px 10px rgba(212,175,55,.25))}
+@media(max-width:767px){.nav-inner{height:92px;gap:12px}body{padding-top:92px}.logo-img{height:69px!important}}
 
+/* ---- NAVBAR: nav próxima da logo; CTA e menu empurrados p/ direita ---- */
+.nav-right{display:contents}
+.nav-desktop{gap:2px;margin:0!important}
+.btn-cta-nav{margin-left:auto}
+.hamburger{margin-left:auto}
+@media(min-width:961px){.hamburger{margin-left:0}}
 /* ---- NAVBAR: links maiores, hover azul consistente (sem caixa branca) ---- */
-.nav-desktop{gap:4px}
-.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 18px!important}
+.nav-link{font-size:15px!important;font-weight:500!important;color:rgba(255,255,255,.82)!important;padding:9px 14px!important}
 .nav-link:hover{color:#ffffff!important;background:transparent!important}
 .nav-link::after{background:var(--grad-azul-bright);height:2.5px}
 .nav-link:hover::after{width:70%}
