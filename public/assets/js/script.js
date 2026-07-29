@@ -74,12 +74,17 @@ document.addEventListener('DOMContentLoaded', function() {
   var bar = document.createElement('div');
   bar.className = 'scroll-progress';
   document.body.appendChild(bar);
+  var barTicking = false;
   function updateBar(){
     var h = document.documentElement;
-    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
-    bar.style.transform = 'scaleX(' + (scrolled || 0) + ')';
+    var denom = h.scrollHeight - h.clientHeight;
+    var scrolled = denom > 0 ? h.scrollTop / denom : 0;
+    bar.style.transform = 'scaleX(' + scrolled + ')';
+    barTicking = false;
   }
-  window.addEventListener('scroll', updateBar, {passive:true});
+  window.addEventListener('scroll', function(){
+    if (!barTicking) { barTicking = true; requestAnimationFrame(updateBar); }
+  }, {passive:true});
   updateBar();
 
   // 2) Efeito 3D (tilt) nos cards seguindo o mouse — só desktop, sem reduzir movimento
