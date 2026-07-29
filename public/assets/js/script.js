@@ -85,21 +85,30 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', function(){
     if (!barTicking) { barTicking = true; requestAnimationFrame(updateBar); }
   }, {passive:true});
-  updateBar();
+  requestAnimationFrame(updateBar);
 
   // 2) Efeito 3D (tilt) nos cards seguindo o mouse — só desktop, sem reduzir movimento
   if (!reduz && window.matchMedia('(hover:hover) and (min-width:1024px)').matches) {
     var tiltCards = document.querySelectorAll('.card-servico, .pq-card, .num-card, .estrutura-card, .step-card');
     tiltCards.forEach(function(card){
       card.classList.add('tilt');
+      var rect = null, ticking = false, lastEvent = null;
+      card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
       card.addEventListener('mousemove', function(e){
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = 'perspective(900px) rotateX(' + (-py*5).toFixed(2) + 'deg) rotateY(' + (px*5).toFixed(2) + 'deg) translateY(-6px)';
+        lastEvent = e;
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function(){
+          if (!rect) rect = card.getBoundingClientRect();
+          var px = (lastEvent.clientX - rect.left) / rect.width - 0.5;
+          var py = (lastEvent.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = 'perspective(900px) rotateX(' + (-py*5).toFixed(2) + 'deg) rotateY(' + (px*5).toFixed(2) + 'deg) translateY(-6px)';
+          ticking = false;
+        });
       });
       card.addEventListener('mouseleave', function(){
         card.style.transform = '';
+        rect = null;
       });
     });
   }
@@ -107,10 +116,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // 3) Brilho que segue o cursor dentro dos cards (spotlight sutil)
   if (!reduz && window.matchMedia('(hover:hover)').matches) {
     document.querySelectorAll('.card-servico, .pq-card').forEach(function(card){
+      var rect = null, ticking = false, lastEvent = null;
+      card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
       card.addEventListener('mousemove', function(e){
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+        lastEvent = e;
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function(){
+          if (!rect) rect = card.getBoundingClientRect();
+          card.style.setProperty('--mx', ((lastEvent.clientX - rect.left) / rect.width * 100) + '%');
+          card.style.setProperty('--my', ((lastEvent.clientY - rect.top) / rect.height * 100) + '%');
+          ticking = false;
+        });
       });
     });
   }
