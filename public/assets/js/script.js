@@ -2,23 +2,19 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Navbar scroll effect
   var navbar = document.getElementById('navbar');
-  if (navbar) {
-    window.addEventListener('scroll', function(){
-      if (window.scrollY > 40) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    }, {passive:true});
-  }
-
-  // Botao do WhatsApp so aparece apos sair do hero, evitando sobrepor o hero em telas pequenas
   var waBtn = document.getElementById('whatsapp-flutuante');
-  if (waBtn) {
-    var toggleWa = function(){
-      if (window.scrollY > 420) waBtn.classList.add('wa-visivel');
-      else waBtn.classList.remove('wa-visivel');
-    };
-    toggleWa();
-    window.addEventListener('scroll', toggleWa, {passive:true});
+  // Unified scroll handler batched with requestAnimationFrame to avoid forced reflow
+  var scrollTicking = false;
+  function onScrollFrame(){
+    var y = window.scrollY;
+    if (navbar) navbar.classList.toggle('scrolled', y > 40);
+    if (waBtn) waBtn.classList.toggle('wa-visivel', y > 420);
+    scrollTicking = false;
   }
+  window.addEventListener('scroll', function(){
+    if (!scrollTicking) { scrollTicking = true; requestAnimationFrame(onScrollFrame); }
+  }, {passive:true});
+  onScrollFrame();
 
   var btn = document.getElementById('menu-btn');
   var menu = document.getElementById('menu-mobile');
