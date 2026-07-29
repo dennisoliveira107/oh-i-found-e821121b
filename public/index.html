@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/css/style.css?v=25.0">
+<link rel="stylesheet" href="/assets/css/style.css?v=26.0">
 <link rel="preload" as="image" href="/assets/img/dr-maxwell-hero.webp" fetchpriority="high" type="image/webp">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png?v=2">
@@ -330,10 +330,14 @@
 <section id="video" class="section" style="background:var(--fundo-2)">
 <div class="wrap">
 <div class="section-head"><span class="section-eyebrow">Vídeo</span><h2>Calvície Tem Solução?</h2><p>Descubra quando o transplante capilar é indicado, direto com o Dr. Maxwell Pereira</p></div>
-<button type="button" class="video-embed video-facade" id="video-facade" data-video="w_RN_-jFwcY" aria-label="Reproduzir vídeo: Calvície Tem Solução?">
+<div class="video-wrap">
+<div class="video-embed">
+<button type="button" class="video-facade" id="video-facade" data-video="w_RN_-jFwcY" aria-label="Reproduzir vídeo: Calvície Tem Solução?">
 <img src="https://i.ytimg.com/vi/w_RN_-jFwcY/hqdefault.jpg" alt="Calvície Tem Solução? Descubra Quando o Transplante Capilar é Indicado - Dr. Maxwell Pereira" loading="lazy" width="480" height="360">
 <span class="video-play-btn" aria-hidden="true">▶</span>
 </button>
+</div>
+</div>
 </div>
 </section>
 
@@ -499,7 +503,6 @@
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.allowFullscreen = true;
     facade.replaceWith(iframe);
-    iframe.className = 'video-embed';
   });
 })();
 </script>
