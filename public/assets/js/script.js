@@ -115,3 +115,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Acordeao (FAQ / causas) — substitui Alpine.js por JS puro, sem dependencia externa
+document.addEventListener('DOMContentLoaded', function() {
+  function initAccordionGroup(group, itemSel, btnSel, contentSel, signSel){
+    var items = group.querySelectorAll(itemSel);
+    items.forEach(function(item){
+      var btn = item.querySelector(btnSel);
+      var content = item.querySelector(contentSel);
+      var sign = item.querySelector(signSel);
+      if (!btn || !content) return;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', function(){
+        var isOpen = item.classList.contains('is-open');
+        items.forEach(function(other){
+          other.classList.remove('is-open');
+          other.querySelector(contentSel).style.maxHeight = '';
+          var otherBtn = other.querySelector(btnSel);
+          var otherSign = other.querySelector(signSel);
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          if (otherSign) otherSign.textContent = '+';
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+          if (sign) sign.textContent = '−';
+        }
+      });
+    });
+  }
+  document.querySelectorAll('.faq-wrap').forEach(function(group){
+    initAccordionGroup(group, '.faq-item', '.faq-btn', '.faq-content', '.sign');
+  });
+  document.querySelectorAll('.causas-acordeao').forEach(function(group){
+    initAccordionGroup(group, '.causa-item', '.causa-btn', '.causa-content', '.causa-sign');
+  });
+});

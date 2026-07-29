@@ -153,7 +153,7 @@ body.menu-aberto #whatsapp-flutuante{opacity:0!important;pointer-events:none!imp
 .faq-item:hover{border-color:rgba(212,175,55,0.35)}
 .faq-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:24px 28px;color:var(--texto);font-size:16px;font-weight:500;font-family:'Inter',sans-serif}
 .faq-btn .sign{color:var(--ouro);font-size:24px;flex-shrink:0;margin-left:16px}
-.faq-content{padding:0 28px 24px}
+.faq-content{padding:0 28px 24px;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.34,1.56,.64,1)}
 .faq-content p{color:var(--texto-sec);font-size:15px;line-height:1.7;margin:0}
 .breadcrumb{max-width:1200px;margin:0 auto;padding:28px 24px;color:var(--texto-sec);font-size:13px}
 .breadcrumb a{color:var(--texto-sec);text-decoration:none}
@@ -525,11 +525,6 @@ img, iframe { max-width: 100%; height: auto; }
   transition: transform .6s;
 }
 .btn-outline:hover::before { transform: translateX(100%); }
-
-/* FAQ — smoother accordion */
-.faq-content {
-  transition: max-height .5s cubic-bezier(.34,1.56,.64,1), padding .3s;
-}
 
 /* Section headings — gold underline accent */
 .section-head h2, .section h2 {
@@ -1191,7 +1186,7 @@ a:focus-visible,button:focus-visible,.nav-link:focus-visible,.faq-btn:focus-visi
 .causa-title{font-weight:700;font-size:16px;color:var(--texto)}
 .causa-teaser{font-size:13px;color:var(--texto-sec);margin-top:2px}
 .causa-sign{color:var(--ouro);font-size:22px;flex-shrink:0}
-.causa-content{padding:0 22px 20px 78px}
+.causa-content{padding:0 22px 20px 78px;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.34,1.56,.64,1)}
 .causa-content p{color:var(--texto-sec);font-size:14px;line-height:1.7;margin:0}
 @media(max-width:600px){.causa-content{padding-left:22px}.causa-teaser{display:none}}
 
