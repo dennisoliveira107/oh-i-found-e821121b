@@ -1221,3 +1221,36 @@ a:focus-visible,button:focus-visible,.nav-link:focus-visible,.faq-btn:focus-visi
   .escala-num{font-size:12px}
   .escala-chips{gap:9px}
 }
+
+/* ==================================================================
+   QUICK WINS DE CONVERSAO — CTA da Hero acima da dobra (desktop)
+   Auditoria 04/08/2026: em 1280x720 o botao "Agendar Consulta"
+   ficava 137px abaixo da area visivel. Bloco no fim do arquivo
+   de proposito, para vencer a cascata sem editar as regras espalhadas.
+   ================================================================== */
+
+/* Header mais enxuto — a logo a 92px era a maior causa dos 112px de altura */
+.nav-inner{height:76px}
+body{padding-top:76px}
+.logo-img{height:60px!important}
+html{scroll-padding-top:88px}
+
+/* Hero: respiro menor no topo e na base */
+.hero{padding:32px 24px 40px!important}
+
+/* Espacamentos internos da Hero, aproximando o CTA do topo */
+/* Teto de 56px: a 62px o H1 quebrava em 4 linhas na coluna de 572px;
+   a 56px cabe em 3 linhas e economiza 84px sem perder presenca visual. */
+.hero h1{margin:12px 0 14px;font-size:clamp(34px,4.6vw,56px)}
+.hero-sub{margin:0 0 12px}
+.hero-desc{margin:0 0 22px}
+
+@media(max-width:767px){
+  .nav-inner{height:72px}
+  body{padding-top:72px}
+  .logo-img{height:54px!important}
+}
+@media(max-width:768px){
+  .hero{padding:24px 20px 40px!important}
+  .hero h1{margin:12px 0}
+}
