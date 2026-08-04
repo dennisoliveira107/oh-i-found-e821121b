@@ -1254,3 +1254,39 @@ html{scroll-padding-top:88px}
   .hero{padding:24px 20px 40px!important}
   .hero h1{margin:12px 0}
 }
+
+/* ==================================================================
+   LCP — nada acima da dobra pode comecar invisivel
+   --------------------------------------------------------------
+   Duas regras faziam a hero nascer em opacity:0:
+     1) `section{animation:slideInTitle .9s both}`  -> as 14 sections
+     2) `.hero-img{animation:heroEntraImg 1s both;delay:.30s}`
+   O Chrome ignora elementos com opacity:0 ao eleger o elemento de
+   LCP. Como o elemento de LCP e justamente a foto da hero — que o
+   HTML ja pre-carrega com fetchpriority="high" — o site pagava para
+   buscar a imagem cedo e em seguida a escondia por .30s + 1s de
+   animacao, anulando o proprio preload e empurrando o LCP.
+   Aqui mantemos o movimento de entrada (translateY/scale) e
+   removemos apenas o fade, para o conteudo pintar no primeiro frame.
+   Bonus: se a animacao falhar ou for congelada, nada fica invisivel.
+   ================================================================== */
+@keyframes heroEntraSemFade{
+  from{transform:translateY(22px)}
+  to{transform:translateY(0)}
+}
+@keyframes heroEntraImgSemFade{
+  from{transform:translateY(22px) scale(.98)}
+  to{transform:translateY(0) scale(1)}
+}
+
+/* A propria hero nunca participa do fade-in generico de <section> */
+.hero,.page-hero{animation:none!important;opacity:1!important}
+
+@media (prefers-reduced-motion: no-preference){
+  .hero .badge-gold,.hero h1,.hero-sub,.hero-desc,.hero-ctas,.hero-badges{
+    animation-name:heroEntraSemFade
+  }
+  /* imagem = elemento de LCP: entra junto com o resto, sem atraso */
+  .hero-img{animation-name:heroEntraImgSemFade;animation-delay:0s}
+  .page-hero .badge-gold,.page-hero h1,.page-hero p{animation-name:heroEntraSemFade}
+}
