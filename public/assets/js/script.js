@@ -1,171 +1,117 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Navbar scroll effect
-  var navbar = document.getElementById('navbar');
-  var waBtn = document.getElementById('whatsapp-flutuante');
-  // Unified scroll handler batched with requestAnimationFrame to avoid forced reflow
-  var scrollTicking = false;
-  function onScrollFrame(){
-    var y = window.scrollY;
-    if (navbar) navbar.classList.toggle('scrolled', y > 40);
-    if (waBtn) waBtn.classList.toggle('wa-visivel', y > 420);
-    scrollTicking = false;
-  }
-  window.addEventListener('scroll', function(){
-    if (!scrollTicking) { scrollTicking = true; requestAnimationFrame(onScrollFrame); }
-  }, {passive:true});
-  onScrollFrame();
+  const navbar = document.getElementById('navbar');
+  const waBtn = document.getElementById('whatsapp-flutuante');
+  const scrollThreshold = 40;
+  const waThreshold = 420;
+  let lastY = 0;
+  let ticking = false;
 
-  var btn = document.getElementById('menu-btn');
-  var menu = document.getElementById('menu-mobile');
+  function updateScroll() {
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 5) {
+      if (navbar) navbar.classList.toggle('scrolled', y > scrollThreshold);
+      if (waBtn) waBtn.classList.toggle('wa-visivel', y > waThreshold);
+      lastY = y;
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Mobile Menu
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu-mobile');
   if (btn && menu) {
-    btn.addEventListener('click', function() {
-      menu.classList.toggle('hidden');
+    btn.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
       btn.classList.toggle('open');
-      document.body.classList.toggle('menu-aberto', !menu.classList.contains('hidden'));
+      document.body.classList.toggle('menu-aberto', !isHidden);
     });
-    menu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
         menu.classList.add('hidden');
         btn.classList.remove('open');
         document.body.classList.remove('menu-aberto');
       });
     });
   }
+
+  // Optimized Counter Animation
   if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
         if (e.isIntersecting) {
-          var el = e.target, target = parseInt(el.dataset.target), cur = 0, step = target/60;
-          var t = setInterval(function(){
-            cur += step;
-            if (cur >= target) { el.textContent = '+' + target.toLocaleString('pt-BR'); clearInterval(t); }
-            else el.textContent = '+' + Math.floor(cur).toLocaleString('pt-BR');
-          }, 16);
-          obs.unobserve(el);
+          const el = e.target;
+          const target = parseInt(el.dataset.target);
+          if (isNaN(target)) return;
+          let current = 0;
+          const duration = 1500;
+          const start = performance.now();
+          
+          function animate(time) {
+            const progress = Math.min((time - start) / duration, 1);
+            current = Math.floor(progress * target);
+            el.textContent = '+' + current.toLocaleString('pt-BR');
+            if (progress < 1) requestAnimationFrame(animate);
+            else el.textContent = '+' + target.toLocaleString('pt-BR');
+          }
+          requestAnimationFrame(animate);
+          counterObs.unobserve(el);
         }
       });
-    });
-    document.querySelectorAll('[data-target]').forEach(function(el){ obs.observe(el); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
   }
-});
 
-// Fade-in ao scroll
-document.addEventListener('DOMContentLoaded', function() {
+  // Optimized Fade-in
   if ('IntersectionObserver' in window) {
-    var fadeObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('in-view'); fadeObs.unobserve(e.target); }
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          fadeObs.unobserve(e.target);
+        }
       });
-    }, { threshold: 0.12 });
-    // Auto-aplicar em seções e títulos
-    document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card').forEach(function(el){
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card').forEach(el => {
       el.classList.add('fade-in-on-scroll');
       fadeObs.observe(el);
     });
   }
-});
 
-/* ===== EFEITOS INTERATIVOS PREMIUM ===== */
-document.addEventListener('DOMContentLoaded', function() {
-  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // 1) Barra de progresso de leitura (topo da pagina)
-  var bar = document.createElement('div');
-  bar.className = 'scroll-progress';
-  document.body.appendChild(bar);
-  var barTicking = false;
-  function updateBar(){
-    var h = document.documentElement;
-    var denom = h.scrollHeight - h.clientHeight;
-    var scrolled = denom > 0 ? h.scrollTop / denom : 0;
-    bar.style.transform = 'scaleX(' + scrolled + ')';
-    barTicking = false;
-  }
-  window.addEventListener('scroll', function(){
-    if (!barTicking) { barTicking = true; requestAnimationFrame(updateBar); }
-  }, {passive:true});
-  requestAnimationFrame(updateBar);
-
-  // 2) Efeito 3D (tilt) nos cards seguindo o mouse — só desktop, sem reduzir movimento
-  if (!reduz && window.matchMedia('(hover:hover) and (min-width:1024px)').matches) {
-    var tiltCards = document.querySelectorAll('.card-servico, .pq-card, .num-card, .estrutura-card, .step-card');
-    tiltCards.forEach(function(card){
-      card.classList.add('tilt');
-      var rect = null, ticking = false, lastEvent = null;
-      card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
-      card.addEventListener('mousemove', function(e){
-        lastEvent = e;
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function(){
-          if (!rect) rect = card.getBoundingClientRect();
-          var px = (lastEvent.clientX - rect.left) / rect.width - 0.5;
-          var py = (lastEvent.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = 'perspective(900px) rotateX(' + (-py*5).toFixed(2) + 'deg) rotateY(' + (px*5).toFixed(2) + 'deg) translateY(-6px)';
-          ticking = false;
-        });
-      });
-      card.addEventListener('mouseleave', function(){
-        card.style.transform = '';
-        rect = null;
-      });
-    });
-  }
-
-  // 3) Brilho que segue o cursor dentro dos cards (spotlight sutil)
-  if (!reduz && window.matchMedia('(hover:hover)').matches) {
-    document.querySelectorAll('.card-servico, .pq-card').forEach(function(card){
-      var rect = null, ticking = false, lastEvent = null;
-      card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
-      card.addEventListener('mousemove', function(e){
-        lastEvent = e;
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function(){
-          if (!rect) rect = card.getBoundingClientRect();
-          card.style.setProperty('--mx', ((lastEvent.clientX - rect.left) / rect.width * 100) + '%');
-          card.style.setProperty('--my', ((lastEvent.clientY - rect.top) / rect.height * 100) + '%');
-          ticking = false;
-        });
-      });
-    });
-  }
-});
-
-// Acordeao (FAQ / causas) — substitui Alpine.js por JS puro, sem dependencia externa
-document.addEventListener('DOMContentLoaded', function() {
-  function initAccordionGroup(group, itemSel, btnSel, contentSel, signSel){
-    var items = group.querySelectorAll(itemSel);
-    items.forEach(function(item){
-      var btn = item.querySelector(btnSel);
-      var content = item.querySelector(contentSel);
-      var sign = item.querySelector(signSel);
-      if (!btn || !content) return;
-      btn.setAttribute('aria-expanded', 'false');
-      btn.addEventListener('click', function(){
-        var isOpen = item.classList.contains('is-open');
-        items.forEach(function(other){
-          other.classList.remove('is-open');
-          other.querySelector(contentSel).style.maxHeight = '';
-          var otherBtn = other.querySelector(btnSel);
-          var otherSign = other.querySelector(signSel);
-          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-          if (otherSign) otherSign.textContent = '+';
+  // Accordion
+  document.querySelectorAll('.faq-wrap, .causas-acordeao').forEach(group => {
+    const isFAQ = group.classList.contains('faq-wrap');
+    const itemSel = isFAQ ? '.faq-item' : '.causa-item';
+    const btnSel = isFAQ ? '.faq-btn' : '.causa-btn';
+    const contentSel = isFAQ ? '.faq-content' : '.causa-content';
+    const signSel = isFAQ ? '.sign' : '.causa-sign';
+    
+    group.querySelectorAll(itemSel).forEach(item => {
+      const btn = item.querySelector(btnSel);
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+        group.querySelectorAll(itemSel).forEach(i => {
+          i.classList.remove('is-open');
+          const c = i.querySelector(contentSel);
+          if (c) c.style.maxHeight = null;
+          const s = i.querySelector(signSel);
+          if (s) s.textContent = '+';
         });
         if (!isOpen) {
           item.classList.add('is-open');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          btn.setAttribute('aria-expanded', 'true');
-          if (sign) sign.textContent = '−';
+          const c = item.querySelector(contentSel);
+          if (c) c.style.maxHeight = c.scrollHeight + 'px';
+          const s = item.querySelector(signSel);
+          if (s) s.textContent = isFAQ ? '−' : '−';
         }
       });
     });
-  }
-  document.querySelectorAll('.faq-wrap').forEach(function(group){
-    initAccordionGroup(group, '.faq-item', '.faq-btn', '.faq-content', '.sign');
-  });
-  document.querySelectorAll('.causas-acordeao').forEach(function(group){
-    initAccordionGroup(group, '.causa-item', '.causa-btn', '.causa-content', '.causa-sign');
   });
 });

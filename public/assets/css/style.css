@@ -107,7 +107,6 @@ body.menu-aberto #whatsapp-flutuante{opacity:0!important;pointer-events:none!imp
 .numeros{background:var(--fundo-3);padding:80px 24px;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
 .numeros-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .num-card{background:linear-gradient(145deg,var(--fundo-2),var(--fundo-3));padding:48px 24px;text-align:center;border:1px solid var(--borda);border-radius:18px;transition:all .3s}
-.num-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-gold);border-color:rgba(212,175,55,0.5)}
 .num-valor{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);font-weight:700;display:block;margin-bottom:8px;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
 .num-label{color:var(--texto-sec);font-size:13px}
 @media(max-width:768px){.numeros-grid{grid-template-columns:repeat(2,1fr)}}
