@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card').forEach(el => {
+      const r = el.getBoundingClientRect();
+      const jaVisivel = r.top < window.innerHeight && r.bottom > 0;
+      if (jaVisivel) return; // já está na tela no carregamento: não anima, evita CLS
       el.classList.add('fade-in-on-scroll');
       fadeObs.observe(el);
     });
