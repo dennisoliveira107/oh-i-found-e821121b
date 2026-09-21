@@ -1258,3 +1258,6 @@ html{scroll-padding-top:88px}
 .home-caso .foto{position:relative}
 .home-caso .lbl{position:absolute;top:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);background:rgba(8,15,28,.78);border:1px solid rgba(212,175,55,.7);border-radius:99px;padding:5px 12px;transform:translateX(-50%)}
 .home-caso .lbl-a{left:25%}.home-caso .lbl-d{left:75%}
+
+/* Hero: <picture> e item flex de largura indefinida; sem isso a foto nasce pequena e salta quando carrega (CLS 0.10-0.23). */
+.hero-img picture{display:block;width:100%;height:100%}
