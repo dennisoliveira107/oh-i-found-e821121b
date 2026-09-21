@@ -1255,3 +1255,6 @@ html{scroll-padding-top:88px}
 .home-caso .caso-tag{justify-self:start;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--ouro-deep);background:rgba(212,175,55,.14);border:1px solid rgba(168,133,42,.35);border-radius:99px;padding:5px 12px}
 .home-caso p{margin:0;font-size:14.5px;line-height:1.65;color:var(--texto-sec)}
 @media(max-width:900px){.home-casos{grid-template-columns:1fr;max-width:520px}}
+.home-caso .foto{position:relative}
+.home-caso .lbl{position:absolute;top:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);background:rgba(8,15,28,.78);border:1px solid rgba(212,175,55,.7);border-radius:99px;padding:5px 12px;transform:translateX(-50%)}
+.home-caso .lbl-a{left:25%}.home-caso .lbl-d{left:75%}
