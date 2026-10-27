@@ -78,10 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card').forEach(el => {
-      const r = el.getBoundingClientRect();
-      const jaVisivel = r.top < window.innerHeight && r.bottom > 0;
-      if (jaVisivel) return; // já está na tela no carregamento: não anima, evita CLS
+    // Lê todas as posições antes de alterar qualquer classe: alternar leitura e escrita
+    // forçava um recálculo de layout por elemento (tarefa longa de ~1 s no celular).
+    const vh = window.innerHeight;
+    const alvos = [...document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card')]
+      .filter(el => { const r = el.getBoundingClientRect(); return !(r.top < vh && r.bottom > 0); }); // já na tela: não anima, evita CLS
+    alvos.forEach(el => {
       el.classList.add('fade-in-on-scroll');
       fadeObs.observe(el);
     });
