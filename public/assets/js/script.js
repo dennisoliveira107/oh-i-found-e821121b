@@ -83,10 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const vh = window.innerHeight;
     const alvos = [...document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card')]
       .filter(el => { const r = el.getBoundingClientRect(); return !(r.top < vh && r.bottom > 0); }); // já na tela: não anima, evita CLS
-    alvos.forEach(el => {
-      el.classList.add('fade-in-on-scroll');
-      fadeObs.observe(el);
-    });
+    // observe() logo após add() também força layout; classes primeiro, observadores depois.
+    alvos.forEach(el => el.classList.add('fade-in-on-scroll'));
+    alvos.forEach(el => fadeObs.observe(el));
   }
 
   // Accordion
