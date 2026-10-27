@@ -37,7 +37,7 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   <FilesMatch "\.(txt|xml)$">
-    Header set Cache-Control "public, max-age=3600"
+    Header set Cache-Control "public, max-age=86400"
   </FilesMatch>
   # Cabecalhos de seguranca (sem CSP restritiva: Elfsight, YouTube e Maps precisam carregar)
   Header always set X-Content-Type-Options "nosniff"
