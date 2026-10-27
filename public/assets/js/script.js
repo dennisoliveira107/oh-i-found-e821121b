@@ -69,23 +69,27 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Optimized Fade-in
+  // Sem ler posição de ninguém (getBoundingClientRect/observe após add() forçavam layout de
+  // todas as seções no carregamento): o 1º aviso do observador diz se o elemento já estava na
+  // tela (não anima, evita CLS) ou abaixo da dobra (só então ganha a classe de animação).
   if ('IntersectionObserver' in window) {
+    const vistos = new WeakSet();
     const fadeObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
+        const el = e.target;
+        if (!vistos.has(el)) {
+          vistos.add(el);
+          if (e.isIntersecting) fadeObs.unobserve(el);
+          else el.classList.add('fade-in-on-scroll');
+          return;
+        }
         if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          fadeObs.unobserve(e.target);
+          el.classList.add('in-view');
+          fadeObs.unobserve(el);
         }
       });
     }, { threshold: 0.1 });
-    // Lê todas as posições antes de alterar qualquer classe: alternar leitura e escrita
-    // forçava um recálculo de layout por elemento (tarefa longa de ~1 s no celular).
-    const vh = window.innerHeight;
-    const alvos = [...document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card')]
-      .filter(el => { const r = el.getBoundingClientRect(); return !(r.top < vh && r.bottom > 0); }); // já na tela: não anima, evita CLS
-    // observe() logo após add() também força layout; classes primeiro, observadores depois.
-    alvos.forEach(el => el.classList.add('fade-in-on-scroll'));
-    alvos.forEach(el => fadeObs.observe(el));
+    document.querySelectorAll('.section, h2, h3, .card-servico, .card-feature, .card-depo, .num-card').forEach(el => fadeObs.observe(el));
   }
 
   // Accordion
