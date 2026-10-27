@@ -1264,3 +1264,4 @@ html{scroll-padding-top:88px}
 
 /* Seções abaixo da dobra só são calculadas/desenhadas quando chegam perto da tela (menos estilo+layout no celular). */
 section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 700px}
+
